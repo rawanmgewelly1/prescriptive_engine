@@ -1,0 +1,11 @@
+{
+  "input_file": "outputs\\hydrogen_candidates.csv",
+  "valid_candidate_count": 3000,
+  "excluded_invalid_or_negative_power_count": 0,
+  "requested_scenarios": 4,
+  "actual_scenarios": 4,
+  "source": "Existing engine-predicted candidate rows, not new predictions",
+  "disclaimer": "Quantile groups on candidate renewable_power_kw, NOT measured time-synchronized Solar/Wind; no engineering feasibility or global optimum verified.",
+  "models_changed": false,
+  "configuration_changed": false
+}

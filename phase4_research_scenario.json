@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "mode": "explicit_hypothetical_independent_research_scenario",
+  "assumptions_acknowledged": true,
+  "available_power_kw": 200.0,
+  "solar_assumed_kw": 100.0,
+  "wind_assumed_kw": 100.0,
+  "renewable_source": "ILLUSTRATIVE_50_50_SPLIT_OF_PREVIOUSLY_USED_200KW_USER_SCENARIO_NOT_FORECAST_OR_MEASUREMENT",
+  "specific_energy_kwh_per_kg_h2": 55.0,
+  "specific_energy_reference": "https://www.energy.gov/cmei/fuels/technical-targets-liquid-alkaline-electrolysis",
+  "specific_energy_context": "DOE liquid alkaline electrolysis 2022 system energy status; generic literature reference, not verified electrolyzer SEC",
+  "hydrogen_candidates_file": "phase3_results/phase3_research_passed.csv",
+  "fuel_cell_history_file": "data/fuel_cell_standardized.csv",
+  "fuel_cell_reference_flow_l_min": 15.0,
+  "fuel_cell_reference_max_gap_l_min": 0.2,
+  "reference_gas_temperature_k": 273.15,
+  "reference_gas_pressure_pa": 101325.0,
+  "hydrogen_molar_mass_kg_per_mol": 0.00201588,
+  "reference_gas_note": "Ideal dry hydrogen at 0 C and 101325 Pa; capacity illustration, not measured FC inlet conditions",
+  "scope": "RESEARCH_SCENARIO_ONLY_NO_TEMPORAL_COUPLING_NO_REAL_FC_FEED_OR_SAFETY_APPROVAL"
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "mode": "RESEARCH_SIMULATION",
+  "assumptions_acknowledged": true,
+  "description": "Demonstration only: user-entered available power, research data support, assumed regulated fuel-cell demand. Not a verified device chain.",
+  "renewable_power": {
+    "mode": "fixed_user",
+    "available_kw": 200.0
+  },
+  "baseline": {
+    "voltage_v": 1.972,
+    "temperature_c": 50.25,
+    "current_density_a_cm2": 1.464,
+    "electrolyte_concentration_wt_pct": 24.18,
+    "water_flow_l_min": 2.158,
+    "pressure_bar": 18.08
+  },
+  "baseline_provenance": "Original sample_id=1511, observed renewable_power_kw=199.910; fixed scenario power is 200 kW and six controls are copied from this observed record.",
+  "bounds": {
+    "voltage_v": [
+      1.583,
+      2.217
+    ],
+    "temperature_c": [
+      47.0395,
+      83.05149999999999
+    ],
+    "current_density_a_cm2": [
+      0.314,
+      2.3901499999999993
+    ],
+    "electrolyte_concentration_wt_pct": [
+      20.729,
+      34.31
+    ],
+    "water_flow_l_min": [
+      0.75495,
+      4.7520999999999995
+    ],
+    "pressure_bar": [
+      2.497000000000001,
+      28.260999999999996
+    ]
+  },
+  "bounds_basis": "Empirical 5th\u201395th percentile per feature; not safety limits; does not establish joint-distribution support.",
+  "optimization": {
+    "candidate_count": 2500,
+    "seed": 42
+  },
+  "energy_benchmark": {
+    "kwh_per_kg": 55.0,
+    "use_as": "RESEARCH_COMPARISON_ONLY",
+    "source": "U.S. DOE 2022 alkaline electrolyzer reference system energy benchmark; illustrative assumption, not measured system SEC"
+  },
+  "fuel_cell": {
+    "bridge_mode": "ASSUMED_REGULATED_DRAW",
+    "acknowledge_unverified_device_chain": true,
+    "flow_demand_l_min": 14.998525520000001,
+    "gas_reference_temperature_k": 273.15,
+    "gas_reference_pressure_pa": 101325.0,
+    "operating_point": {
+      "voltage_v": 47.240817035,
+      "temperature_c": 71.20329585,
+      "pressure_bar": 3.0002024924999997
+    },
+    "operating_point_provenance": "Numeric medians of historically labelled Pass rows; hypothetical setpoint, NOT verified connected hydrogen-fuel-cell device configuration.",
+    "flow_demand_provenance": "Median observed historical Fuel Cell Pass flow, not a measured demand from the candidate electrolyzer."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "mode": "research_scenario",
+  "source": "user_entered_available_power",
+  "available_power_kw": 200.0,
+  "source_reference": null,
+  "measurement_timestamp": null,
+  "measurement_point": null,
+  "measurement_basis": null,
+  "available_power_semantics": "SUPPLY_AVAILABLE_NOT_CONSUMED",
+  "historical_alignment": "NOT_VERIFIED",
+  "consumed_power_status": "NOT_AVAILABLE",
+  "physical_dispatch": "NOT_APPROVED",
+  "scientific_status": "RESEARCH_SCENARIO_ONLY"
+}

@@ -1,0 +1,4 @@
+{
+  "mode": "missing_measurements",
+  "reason": "Only renewable supply AVAILABLE is documented. No simultaneous electrolyzer electricity consumption and hydrogen mass measurements have been provided."
+}

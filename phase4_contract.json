@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "input_files": {
+    "solar_source": "data/solar_standardized.csv",
+    "wind_source": "data/wind_standardized.csv",
+    "hydrogen_source": "data/green_hydrogen_standardized.csv",
+    "fuel_cell_source": "data/fuel_cell_standardized.csv",
+    "solar_predictions": "outputs/solar_predictions.csv",
+    "wind_predictions": "outputs/wind_predictions.csv",
+    "phase3_passed": "phase3_results/phase3_research_passed.csv",
+    "fuel_cell_predictions": "outputs/fuel_cell_diagnostics.csv",
+    "fuel_cell_bridge": null
+  },
+  "link_evidence": {
+    "renewable_to_hydrogen": {
+      "common_clock_reference": null,
+      "hydrogen_timestamp_reference": null,
+      "hydrogen_timestamp_format": "%m/%d/%Y %H:%M"
+    },
+    "hydrogen_to_fuel_cell": {
+      "same_device_chain_reference": null,
+      "measured_flow_reference": null,
+      "fuel_cell_operating_point_reference": null,
+      "shared_clock_reference": null,
+      "hydrogen_timestamp_format": "%m/%d/%Y %H:%M",
+      "fuel_cell_timestamp_format": "%m/%d/%Y %H:%M"
+    }
+  },
+  "scientific_claim": "EVIDENCE_GATED_RESEARCH_INTEGRATION_ONLY_NOT_PHYSICAL_DISPATCH_OR_SAFETY",
+  "note": "Never fill absent references with invented evidence; never use FC historical flow as Hydrogen candidate flow. Existing config.json must contain independent documented alignment semantics for solar+wind. Legacy Phase 3 source_row_number is not assumed to equal original sample_id; exact unique seven-feature source match is audited."
+}

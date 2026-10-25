@@ -1,0 +1,23 @@
+{
+  "input_file": "outputs\\hydrogen_candidates.csv",
+  "rows_read": 3000,
+  "rows_eligible": 3000,
+  "rows_excluded": 0,
+  "definition": "hydrogen predicted kg/h divided by renewable power AVAILABLE kW",
+  "units": "kg per kWh available (proxy); inverse is kWh available per kg predicted, NOT SEC",
+  "approved_operating_recommendation": false,
+  "consumed_electrical_power_verified": false,
+  "cannot_calculate": [
+    "electrolyzer SEC",
+    "electrolyzer electrical efficiency",
+    "physical safety",
+    "Solar/Wind historical alignment"
+  ],
+  "evidence_required": [
+    "documented boundary of available renewable power measurement (AC/DC, bus point, and losses)",
+    "simultaneous electrolyzer electrical input measurement or validated dispatch model",
+    "hydrogen actual production measurement, standardized mass basis and time matching",
+    "electrolyzer manufacturer operating limits, safety constraints, pressure, temperature, flow and current",
+    "source provenance and independent validation of predicted production"
+  ]
+}

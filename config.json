@@ -1,0 +1,284 @@
+{
+  "dataset_dir": "data",
+  "models_dir": "models",
+  "selected_features_dir": "selected_features",
+  "output_dir": "outputs",
+  "solar_dataset_file": "solar_standardized.csv",
+  "wind_dataset_file": "wind_standardized.csv",
+  "hydrogen_dataset_file": "green_hydrogen_standardized.csv",
+  "fuel_cell_dataset_file": "fuel_cell_standardized.csv",
+  "solar_model_file": "best_Solar_Power_model.pkl",
+  "wind_model_file": "best_Wind_Power_model.pkl",
+  "hydrogen_model_file": "best_Green_Hydrogen_model.pkl",
+  "fuel_cell_model_file": "best_fuel_cell_model.pkl",
+  "solar_scaler_file": "Solar_scaler.pkl",
+  "wind_scaler_file": "Wind_scaler.pkl",
+  "hydrogen_scaler_file": "Green_Hydrogen_scaler.pkl",
+  "fuel_cell_scaler_file": "Fuel_Cell_scaler.pkl",
+  "solar_target": "solar_power_kw",
+  "wind_target": "wind_power_kw",
+  "hydrogen_target": "hydrogen_production_kg_h",
+  "solar_features": [
+    "temperature_c",
+    "air_density_kg_m3",
+    "global_irradiance_w_m2",
+    "plane_irradiance_w_m2",
+    "cloud_fraction",
+    "Hour",
+    "Day",
+    "DayOfYear"
+  ],
+  "wind_features": [
+    "wind_speed_m_s",
+    "wind_direction_deg",
+    "external_temperature_c",
+    "internal_temperature_c",
+    "nacelle_direction_deg",
+    "blade_pitch_1_deg",
+    "blade_pitch_2_deg",
+    "blade_pitch_3_deg",
+    "reactive_power_kvar",
+    "Hour",
+    "Minute",
+    "Month"
+  ],
+  "hydrogen_features": [
+    "renewable_power_kw",
+    "voltage_v",
+    "temperature_c",
+    "current_density_a_cm2",
+    "electrolyte_concentration_wt_pct",
+    "water_flow_l_min",
+    "pressure_bar"
+  ],
+  "decision_variables": [
+    "voltage_v",
+    "temperature_c",
+    "current_density_a_cm2",
+    "electrolyte_concentration_wt_pct",
+    "water_flow_l_min",
+    "pressure_bar"
+  ],
+  "fuel_cell_features": [
+    "hydrogen_flow_l_min",
+    "voltage_v",
+    "temperature_c",
+    "pressure_bar"
+  ],
+  "input_modes": {
+    "solar": "raw",
+    "wind": "raw",
+    "hydrogen": "scaled",
+    "fuel_cell": "scaled"
+  },
+  "input_modes_verified": {
+    "solar": true,
+    "wind": true,
+    "hydrogen": true,
+    "fuel_cell": true
+  },
+  "require_verified_preprocessing": true,
+  "selected_feature_files": {
+    "solar": "Solar_selected_features.csv",
+    "wind": "Wind_selected_features.csv",
+    "hydrogen": "Green_Hydrogen_selected_features.csv",
+    "fuel_cell": "Fuel_Cell_selected_features.csv"
+  },
+  "alignment": {
+    "solar_timestamp_column": "timestamp",
+    "frequency": "h",
+    "timestamps_compatible_verified": false,
+    "solar_power_semantics_verified": false,
+    "wind_power_semantics_verified": false,
+    "wind_aggregation": "mean",
+    "wind_duplicate_timestamp_aggregation": "mean",
+    "solar_duplicate_timestamp_aggregation": "mean",
+    "wind_aggregation_semantics_verified": false,
+    "wind_aggregation_interpretation": "Unverified; retain configured mean for diagnostic series only, not as verified turbine/farm aggregation.",
+    "wind_first_order_verified": false,
+    "solar_first_order_verified": false,
+    "wind_duplicate_timestamp_semantics_verified": false,
+    "solar_duplicate_timestamp_semantics_verified": false,
+    "solar_power_scope": "unknown",
+    "wind_power_scope": "unknown"
+  },
+  "wind_calendar": {
+    "day_index_zero_date": null,
+    "day_index_zero_date_verified": false,
+    "day_index_zero_date_reference": "",
+    "allow_unused_month_relative_inference": true
+  },
+  "wind_time_numeric_unit": null,
+  "wind_chunksize": 100000,
+  "renewable_combination": {
+    "method": "sum"
+  },
+  "power_validation": {
+    "reject_negative_predictions": true
+  },
+  "candidate_generation": {
+    "method": "correlated_resample",
+    "n_candidates": 50000,
+    "random_seed": 42,
+    "top_n": 100,
+    "objective": "hydrogen_production_kg_h",
+    "ranking_direction": "maximize"
+  },
+  "approved_ranges": {},
+  "constraints": [],
+  "fuel_cell_pass_constraint": {
+    "enabled": false,
+    "required_class_label": "Pass",
+    "verified": false,
+    "input_mapping_verified": false,
+    "mapping_reference": null,
+    "class_label_mapping": {
+      "0": "Fail",
+      "1": "Pass"
+    },
+    "class_mapping_verified": true,
+    "class_mapping_reference": "fuel_cell_training.ipynb: cell 49 explicitly maps 'Fail' to 0 and 'Pass' to 1; saved model's classes_ reported ['0', '1'] in run_diagnostics.csv; confirm model provenance before treating it as external scientific validation."
+  },
+  "outputs": {
+    "model_schema": "model_schema.csv",
+    "preprocessing": "preprocessing_status.csv",
+    "bounds": "candidate_bounds.csv",
+    "all_candidates": "hydrogen_candidates.csv",
+    "feasible": "feasible_candidates.csv",
+    "top": "top_candidates.csv",
+    "best": "best_candidate.csv",
+    "solar": "solar_predictions.csv",
+    "wind": "wind_predictions.csv",
+    "renewable": "renewable_power_aligned.csv",
+    "fuel_cell_predictions": "fuel_cell_diagnostics.csv",
+    "fuel_cell_classes": "fuel_cell_classes.csv",
+    "diagnostics": "run_diagnostics.csv"
+  },
+  "notes": {
+    "preprocessing": "All inference modes are provisional until verified against training/preprocessing code.",
+    "wind_calendar": "Leave day_index_zero_date null until day_index=0 is mapped to a documented calendar date.",
+    "fuel_cell": "No hydrogen-production kg/h to hydrogen_flow_l_min conversion is implemented.",
+    "safety": "Observed data support is not a safety envelope; no physical operating constraints are enabled by default.",
+    "wind_aggregation": "Configured aggregation is explicit but not scientifically verified until dataset row/turbine semantics and approval reference are documented.",
+    "fuel_cell_class_mapping": "Numeric classifier classes require an evidenced mapping from the original encoder/training code.",
+    "candidate_generation": "Current methods rank unique observed operating points; they do not generate novel operating conditions or prove a global optimum.",
+    "scaler_feature_order": "If a scaler lacks feature_names_in_, feature-count equality alone is insufficient; verify exact training columns/order from training code before enabling.",
+    "target_units": "Target labels/units are provisional until training target preprocessing and any inverse transformation are verified. Do not mark true from column names alone.",
+    "observed_target_units": "Observed target values in standardized datasets are not labelled with physical units unless observed_target_units_verified and its reference are explicitly reviewed."
+  },
+  "scaler_feature_order_verified": {
+    "solar": false,
+    "wind": false,
+    "hydrogen": true,
+    "fuel_cell": true
+  },
+  "require_verified_target_units": true,
+  "target_units_verified": {
+    "solar": true,
+    "wind": true,
+    "hydrogen": true
+  },
+  "input_modes_verification_reference": {
+    "solar": "solar_training.ipynb: cells 42, 54, 58, 78 — non-linear best model is trained on X_train_final=X_train[selected_features] (raw feature values); scaler is saved but not used for this model path.",
+    "wind": "wind_training.ipynb: cells 47, 60, 64, 84 — XGBoost best-model path trains and predicts with X_train_final=X_train[selected_features] (raw feature values); scaler is only used for Linear Regression path.",
+    "hydrogen": "hydrogen_training.ipynb: cells 37, 45, 49, 68 — selected features are taken from X_train_scaled and model is trained on X_train_final=X_train_scaled[selected].",
+    "fuel_cell": "fuel_cell_training.ipynb: cells 57, 70, 81, 103 — selected features are taken from X_train_scaled and model is trained on X_train_final=X_train_scaled[selected_features]."
+  },
+  "target_units_verification_reference": {
+    "solar": "solar_training.ipynb: cell 29 sets TARGET='solar_power_kw'; target y is used directly with no target scaler or inverse transform in cells 42, 58, 78.",
+    "wind": "wind_training.ipynb: cell 31 sets TARGET='wind_power_kw'; target y is used directly with no target scaler or inverse transform in cells 47, 64, 84.",
+    "hydrogen": "hydrogen_training.ipynb: cell 22 sets TARGET='hydrogen_production_kg_h'; target y is used directly with no target scaler or inverse transform in cells 35, 49, 68."
+  },
+  "model_feature_order_verified": {
+    "solar": false,
+    "wind": false,
+    "hydrogen": false,
+    "fuel_cell": false
+  },
+  "model_feature_order_reference": {
+    "solar": "",
+    "wind": "",
+    "hydrogen": "",
+    "fuel_cell": ""
+  },
+  "scaler_feature_order_reference": {
+    "solar": "",
+    "wind": "",
+    "hydrogen": "Training notebook's numeric_features order and StandardScaler.fit_transform call: hydrogen_training.ipynb cells 37 and 68",
+    "fuel_cell": "Training notebook's numeric_features order and StandardScaler.fit_transform call: fuel_cell_training.ipynb cells 57 and 103"
+  },
+  "alignment_verification_reference": {
+    "timestamps_compatible_verified": "",
+    "solar_power_semantics_verified": "",
+    "wind_power_semantics_verified": "",
+    "wind_aggregation_semantics_verified": "",
+    "timestamp_timezone_mode": "",
+    "wind_first_order_verified": "",
+    "solar_first_order_verified": "",
+    "wind_duplicate_timestamp_semantics_verified": "",
+    "solar_duplicate_timestamp_semantics_verified": "",
+    "solar_power_scope": "",
+    "wind_power_scope": ""
+  },
+  "wind_aggregation_evidence": {
+    "target_semantics": null,
+    "turbine_id_column": "turbine_id",
+    "power_unit": null,
+    "simultaneous_observations_verified": false,
+    "turbine_coverage_verified": false,
+    "reference": ""
+  },
+  "observed_target_units_verified": {
+    "solar": false,
+    "wind": false,
+    "hydrogen": false
+  },
+  "observed_target_units_verification_reference": {
+    "solar": "",
+    "wind": "",
+    "hydrogen": ""
+  },
+  "scaler_feature_order": {
+    "solar": [
+      "temperature_c",
+      "air_density_kg_m3",
+      "global_irradiance_w_m2",
+      "plane_irradiance_w_m2",
+      "cloud_fraction",
+      "Hour",
+      "Day",
+      "DayOfYear"
+    ],
+    "wind": [
+      "wind_speed_m_s",
+      "wind_direction_deg",
+      "external_temperature_c",
+      "internal_temperature_c",
+      "nacelle_direction_deg",
+      "blade_pitch_1_deg",
+      "blade_pitch_2_deg",
+      "blade_pitch_3_deg",
+      "reactive_power_kvar",
+      "Hour",
+      "Minute",
+      "Month"
+    ],
+    "hydrogen": [
+      "temperature_c",
+      "pressure_bar",
+      "voltage_v",
+      "current_density_a_cm2",
+      "water_flow_l_min",
+      "electrolyte_concentration_wt_pct",
+      "renewable_power_kw"
+    ],
+    "fuel_cell": [
+      "voltage_v",
+      "temperature_c",
+      "pressure_bar",
+      "hydrogen_flow_l_min"
+    ]
+  }
+}
+
+

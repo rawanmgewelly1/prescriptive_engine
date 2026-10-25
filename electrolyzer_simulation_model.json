@@ -1,0 +1,10 @@
+{
+  "mode": "research_simulation",
+  "model_type": "literature_specific_energy_benchmark",
+  "technology": "liquid_alkaline_electrolysis",
+  "specific_energy_kwh_per_kg": 55,
+  "reference_url": "https://www.energy.gov/cmei/fuels/technical-targets-liquid-alkaline-electrolysis",
+  "reference_metric": "DOE 2022 status; system energy efficiency, kWh/kg hydrogen",
+  "electricity_boundary": "electrolyzer_system",
+  "scope": "research_comparison_only_not_device_validated"
+}

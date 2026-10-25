@@ -1,0 +1,20 @@
+{
+  "research_constraints": [],
+  "observed_data_screening": {
+    "enabled": true,
+    "mode": "empirical_quantiles",
+    "dataset_file": "data/green_hydrogen_standardized.csv",
+    "columns": [
+      "voltage_v",
+      "temperature_c",
+      "pressure_bar",
+      "current_density_a_cm2",
+      "electrolyte_concentration_wt_pct",
+      "water_flow_l_min"
+    ],
+    "lower_quantile": 0.05,
+    "upper_quantile": 0.95,
+    "scientific_claim": "OBSERVED_DATA_SUPPORT_ONLY_NOT_SAFETY"
+  },
+  "notes": "Research-only sensitivity analysis. 5th/95th percentile thresholds are an explicit analytic choice, NOT engineering constraints or approved operating limits."
+}

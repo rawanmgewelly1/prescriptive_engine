@@ -1,0 +1,55 @@
+{
+  "input_rows": 3000,
+  "enabled_referenced_rules": 0,
+  "empirical_support_rules": 6,
+  "passed_rows": 1622,
+  "rejected_rows": 1378,
+  "pareto_after_screening": 7,
+  "research_status": "SCREENED_OBSERVED_SUPPORT_ONLY",
+  "research_screening_completed": true,
+  "engineering_limits_verified": false,
+  "engineering_approval_status": "BLOCKED_UNVERIFIED_ELECTROLYZER_TYPE_AND_LIMITS",
+  "physical_operating_approval": false,
+  "empirical_support": {
+    "reference_dataset": "/mnt/data/Green_Hydrogen_Organized_Project/data/green_hydrogen_standardized.csv",
+    "lower_quantile": 0.05,
+    "upper_quantile": 0.95,
+    "sample_rows": 3000,
+    "units": {
+      "voltage_v": "V",
+      "temperature_c": "degC",
+      "pressure_bar": "bar",
+      "current_density_a_cm2": "A/cm2",
+      "electrolyte_concentration_wt_pct": "wt%",
+      "water_flow_l_min": "L/min"
+    },
+    "derived_ranges": {
+      "voltage_v": {
+        "min": 1.583,
+        "max": 2.217
+      },
+      "temperature_c": {
+        "min": 47.0395,
+        "max": 83.05149999999999
+      },
+      "pressure_bar": {
+        "min": 2.497000000000001,
+        "max": 28.260999999999996
+      },
+      "current_density_a_cm2": {
+        "min": 0.314,
+        "max": 2.3901499999999993
+      },
+      "electrolyte_concentration_wt_pct": {
+        "min": 20.729,
+        "max": 34.31
+      },
+      "water_flow_l_min": {
+        "min": 0.75495,
+        "max": 4.7520999999999995
+      }
+    },
+    "limitations": "Exploratory percentile bounds selected for sensitivity analysis; NOT physical safety, manufacturer limits, or independent scientific validation. Dataset used in model development; screened candidates are not independently validated."
+  },
+  "warning": "Research screening only. Quantile cuts are analyst-selected and not manufacturer or engineering safety limits. Scientific process compatibility, power consumption and equipment safety have not been established."
+}

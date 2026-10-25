@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scenario": "STRICT_NO_FC_BRIDGE.json",
+  "created_utc": "2026-10-24T11:46:58.506696+00:00",
+  "pipeline": "ORIGINAL_SEVEN_STAGE_RESEARCH_IMPLEMENTATION",
+  "physical_safety_approved": false,
+  "candidate_specific_fc_physical_link_verified": false,
+  "full_four_model_pipeline_verified": false,
+  "scientific_status": "RESEARCH_ONLY_NOT_VALIDATED_ENGINEERING",
+  "renewable_stage": {
+    "mode": "USER_ENTERED_FIXED_POWER",
+    "solar_prediction_kw": null,
+    "wind_prediction_kw": null,
+    "historical_calendar_alignment_verified": false,
+    "supply_is_measured_consumption": false
+  },
+  "fixed_available_power_kw": 200.0,
+  "status": "BLOCKED_FC_BRIDGE_NO_FEASIBLE_RESULT",
+  "candidate_count": 2501,
+  "baseline_predicted_kg_h": 2.1734794965336803,
+  "research_power_comparison_pass_count": 2501,
+  "empirical_joint_support_pass_count": 2469,
+  "empirical_joint_support_cutoff": 0.6888366637417267,
+  "empirical_joint_support_is_safety_approval": false,
+  "full_four_model_pipeline_executed": false,
+  "power_constraint_verified": false,
+  "power_constraint_status": "RESEARCH_SEC_BENCHMARK_ONLY_NOT_MEASURED",
+  "fc_fixed_setpoint_cannot_discriminate_candidates": false,
+  "fc_predicted_pass_count": 0,
+  "conditional_research_feasible_count": 0,
+  "best_conditional_predicted_kg_h": null,
+  "best_candidate_id": null,
+  "baseline_fc_model_class": "NOT_EVALUATED",
+  "fuel_cell_stage": {
+    "link": "BLOCKED_NO_VERIFIED_CANDIDATE_MAPPING"
+  },
+  "power_comparison": "55-kWh/kg or other documented benchmark, NOT measured electrolyzer consumption",
+  "optimization_method": "seeded Latin Hypercube research search; no global optimum certified",
+  "ranges": "user-supplied marginal research bounds within observed univariate support; NOT safety limits",
+  "fuel_cell_result": "predicted class under separately assumed operating point and regulated draw, not physical proof",
+  "research_stage_software_status": "END_TO_END_RESEARCH_IMPLEMENTED_WITH_EXPLICIT_UNVERIFIED_GATES",
+  "physical_integration_blockers": [
+    "Unverified Solar/Wind scope and shared real-world timestamps",
+    "Missing measured electrolyzer energy-consumption function",
+    "Missing validated hydrogen-production-to-FC device bridge and independently specified FC operating conditions",
+    "Model versions and device-domain generalization not independently verified"
+  ],
+  "files": [
+    "all_candidates.csv",
+    "conditionally_feasible.csv",
+    "best_conditional_candidate.csv",
+    "baseline.csv"
+  ]
+}

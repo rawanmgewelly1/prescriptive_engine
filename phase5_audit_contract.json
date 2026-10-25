@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "purpose": "FINAL_RESEARCH_AUDIT_NOT_HARDWARE_CERTIFICATION",
+  "phase3_passed": "phase3_results/phase3_research_passed.csv",
+  "phase4_scenario": "phase4_research_scenario.json",
+  "phase4_simulation_status": "phase4_simulation_results/phase4_simulation_status.json",
+  "phase4_simulated_candidates": "phase4_simulation_results/phase4_simulated_candidates.csv",
+  "phase4_simulated_eligible": "phase4_simulation_results/phase4_simulated_eligible.csv",
+  "phase4_fc_historical_reference": "phase4_simulation_results/phase4_fc_historical_reference.csv",
+  "phase4_physical_link_status_optional": "phase4_results/phase4_status.json",
+  "engine_config": "config.json",
+  "engine_source": "prescriptive_engine/engine.py",
+  "output_dir": "phase5_results",
+  "audit_tolerance": 1e-7,
+  "run_project_tests": true,
+  "scientific_assurance": "RESEARCH_SCENARIO_ONLY_NOT_VALIDATED_PHYSICAL_INTEGRATION",
+  "benchmark_url": "https://www.energy.gov/cmei/fuels/technical-targets-liquid-alkaline-electrolysis"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_scope": "RESEARCH_EVIDENCE_ONLY",
+  "phase5_audit_status": "phase5_results/phase5_audit_status.json",
+  "phase5_sha256_manifest": "phase5_results/phase5_sha256_manifest.csv",
+  "phase4_simulation_status": "phase4_simulation_results/phase4_simulation_status.json",
+  "output_dir": "phase6_results",
+  "required_files": [
+    "phase5_results/phase5_audit_status.json",
+    "phase5_results/phase5_scientific_report_EN.md",
+    "phase5_results/phase5_scientific_report_EN.html",
+    "phase5_results/phase5_acceptance_checks.csv",
+    "phase5_results/phase5_model_compatibility.csv",
+    "phase5_results/phase5_sha256_manifest.csv",
+    "phase5_results/phase5_unit_tests.log",
+    "phase5_results/phase5_reproduction.txt",
+    "phase4_simulation_results/phase4_simulation_status.json",
+    "phase4_simulation_results/phase4_simulated_candidates.csv",
+    "phase4_simulation_results/phase4_simulated_eligible.csv",
+    "phase4_simulation_results/phase4_fc_historical_reference.csv",
+    "phase3_results/phase3_research_passed.csv",
+    "phase4_research_scenario.json",
+    "phase4_research_simulation.py",
+    "phase5_final_audit.py",
+    "phase5_audit_contract.json",
+    "config.json",
+    "prescriptive_engine/engine.py",
+    "phase6_release.py",
+    "phase6_release_contract.json",
+    "RUN_PHASE6.cmd",
+    "INSTALL_PHASE6_EN.txt"
+  ],
+  "optional_files": [
+    "phase4_results/phase4_status.json",
+    "data/fuel_cell_standardized.csv",
+    "models/best_fuel_cell_model.pkl",
+    "models/Fuel_Cell_scaler.pkl",
+    "selected_features/Fuel_Cell_selected_features.csv",
+    "tests/test_phase4_research_simulation.py",
+    "tests/test_phase5_final_audit.py",
+    "tests/test_phase6_release.py"
+  ]
+}

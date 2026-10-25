@@ -1,0 +1,50 @@
+<section class="panel" id="scenario-workspace" aria-label="Live research scenario workspace">
+  <div class="workspace-intro">
+    <div><h2>Scenario Workspace — Seven-Stage Prescriptive Pipeline</h2>
+      <p class="hint">Run the trained models locally; fixed renewable power during each search; maximize predicted H₂ using six research decision variables.</p></div>
+    <span class="ws-badge">RESEARCH ONLY · NOT PHYSICAL VALIDATION</span>
+  </div>
+  <p class="warning">These candidate settings are not approved engineering setpoints. Empirical support is not safe-operation evidence. Fuel Cell Pass may be conditional on an unverified hydrogen-flow bridge and model versions.</p>
+  <div id="ws-connection" class="ws-status">Connecting to the local Python dashboard service…</div>
+  <div class="ws-grid">
+    <div class="ws-sub"><h3>1. Scenario inputs</h3>
+      <label>Scenario template<select id="ws-template"></select></label>
+      <label>Power mode<select id="ws-power-mode"><option value="fixed_user">Fixed user-entered kW</option><option value="model_scenario">Solar + Wind model predictions (hypothetical)</option></select></label>
+      <div id="ws-fixed-wrap"><label>Available renewable power (kW)<input id="ws-fixed-power" type="number" min="0.001" step="any"></label></div>
+      <div id="ws-model-wrap" class="ws-hidden">
+        <p class="hint">Predictions from separate historical sources do not prove simultaneous actual power.</p>
+        <details><summary>Solar model inputs</summary><div id="ws-solar-fields"></div></details>
+        <details><summary>Wind model inputs</summary><div id="ws-wind-fields"></div></details>
+        <label class="ws-check"><input type="checkbox" id="ws-power-ack"> I acknowledge that Solar + Wind power is a hypothetical same-scenario combination, not measured dispatch.</label>
+      </div>
+      <div class="ws-control-row"><label>Research candidates<input id="ws-candidates" type="number" min="20" max="10000" step="1"></label><label>Random seed<input id="ws-seed" type="number" step="1"></label></div>
+    </div>
+    <div class="ws-sub"><h3>2. Baseline and decision bounds</h3>
+      <p class="hint">Only these six controls vary; renewable power stays fixed.</p>
+      <div class="ws-bound-row"><b class="ws-bound-label">Operating variable</b><span class="hint">Baseline</span><span class="hint">Min</span><span class="hint">Max</span></div>
+      <div id="ws-decision-fields"></div>
+      <p class="warning">Bounds are research-data ranges, not hardware-approved safe limits.</p>
+    </div>
+    <div class="ws-sub"><h3>3. Fuel Cell assumption policy</h3>
+      <label>Bridge mode<select id="ws-fc-mode"><option value="BLOCKED_NO_MAPPING">Strict: no unverified bridge (no approved candidate)</option><option value="ASSUMED_REGULATED_DRAW">Research: assumed regulated FC draw</option><option value="ASSUMED_CANDIDATE_FLOW">Research: assumed candidate-specific FC flow</option></select></label>
+      <div id="ws-fc-fields" class="ws-hidden">
+        <label id="ws-fc-draw-wrap">Assumed FC draw (L/min)<input id="ws-fc-draw" type="number" step="any"></label>
+        <div class="ws-control-row" id="ws-fc-point-fields"></div>
+        <label class="ws-check"><input type="checkbox" id="ws-fc-ack"> I acknowledge that the electrolyzer-to-Fuel Cell gas-flow mapping and operating point are unverified research assumptions.</label>
+      </div>
+      <label class="ws-check"><input type="checkbox" id="ws-research-ack"> I understand this is a research-only simulation, not a recommendation for physical equipment.</label>
+      <button type="button" id="ws-run">Run Research Scenario</button>
+      <p class="hint">Each run is saved to <code>outputs/dashboard_runs</code>, without modifying the trained models or original scenario files.</p>
+    </div>
+  </div>
+  <section id="ws-results" class="ws-results ws-hidden" aria-live="polite">
+    <div class="ws-sectionhead"><h3 id="ws-result-heading">Scenario results</h3><label>Saved runs<select id="ws-run-history"><option value="">Select a saved run</option></select></label></div>
+    <div class="ws-status" id="ws-result-status"></div>
+    <div class="ws-metrics" id="ws-metrics"></div>
+    <h3>Predicted H₂ production comparison</h3><div id="ws-production-chart" class="ws-production-chart"></div>
+    <h3>Baseline vs. best conditional candidate</h3><div id="ws-comparison" class="ws-table"></div>
+    <h3>Top conditionally eligible research candidates</h3><div id="ws-top" class="ws-table"></div>
+    <div class="ws-links" id="ws-downloads"></div>
+    <p class="warning" id="ws-disclosure"></p>
+  </section>
+</section>

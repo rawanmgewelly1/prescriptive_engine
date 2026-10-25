@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-24T11:47:08.752235+00:00",
+  "status": "RESEARCH_SOFTWARE_STAGE_ACCEPTED_WITH_DISCLOSED_LIMITATIONS",
+  "physical_engineering_approved": false,
+  "gates": {
+    "four_models_executed": true,
+    "nonzero_fixed_model_power": true,
+    "research_solution_generated": true,
+    "four_model_joint_support_gate_used": true,
+    "fc_regulated_setpoint_non_discriminating_disclosed": true,
+    "direct_fc_out_of_support_rejected": true,
+    "no_bridge_no_false_pass": true,
+    "physical_approval_explicitly_false": true,
+    "power_physically_verified_false": true,
+    "full_unit_test_suite_passed": true
+  },
+  "model_spot_check": "D:\\prescriptive_engine\\outputs\\model_compatibility_status.json",
+  "four_model_status": "RESEARCH_CONDITIONAL_RESULT_NOT_PHYSICAL_VALIDATION",
+  "four_model_power_kw": 200.135641329647,
+  "four_model_best_predicted_kg_h": 3.4909576922292973,
+  "full_four_model_pipeline_verified": false,
+  "actual_device_integration_blockers": [
+    "Unverified Solar/Wind scope and shared real-world timestamps",
+    "Missing measured electrolyzer energy-consumption function",
+    "Missing validated hydrogen-production-to-FC device bridge and independently specified FC operating conditions",
+    "Model versions and device-domain generalization not independently verified"
+  ],
+  "unit_test_tail": "[LOAD WARNING] Green_Hydrogen_scaler.pkl: Trying to unpickle estimator StandardScaler from version 1.8.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n[LOAD WARNING] Fuel_Cell_scaler.pkl: Trying to unpickle estimator StandardScaler from version 1.8.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n[PIPELINE] RESEARCH_CONDITIONAL_RESULT_NOT_PHYSICAL_VALIDATION\nReport: C:\\Users\\mgewe\\AppData\\Local\\Temp\\tmpu_wm5ex4\\pipeline_status.json\n[LOAD WARNING] Green_Hydrogen_scaler.pkl: Trying to unpickle estimator StandardScaler from version 1.8.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n[PIPELINE] BLOCKED_FC_BRIDGE_NO_FEASIBLE_RESULT\nReport: C:\\Users\\mgewe\\AppData\\Local\\Temp\\tmpudia4cw9\\pipeline_status.json\n\n----------------------------------------------------------------------\nRan 164 tests in 8.084s\n\nOK (skipped=2)"
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "mode": "RESEARCH_SIMULATION",
+  "assumptions_acknowledged": true,
+  "description": "Research-only hypothetical combined Solar+Wind model predictions from non-synchronized historical samples. One solar source and one wind turbine; not a measured farm or dispatch.",
+  "renewable_power": {
+    "mode": "model_scenario",
+    "same_hypothetical_scenario_acknowledged": true,
+    "aggregation_scope": "ONE_SOLAR_SOURCE_PLUS_ONE_WIND_TURBINE",
+    "solar_inputs": {
+      "temperature_c": 22.995,
+      "air_density_kg_m3": 1.143,
+      "global_irradiance_w_m2": 9.021,
+      "plane_irradiance_w_m2": 34.978,
+      "cloud_fraction": 0.032,
+      "Hour": 17,
+      "Day": 29,
+      "DayOfYear": 302
+    },
+    "wind_inputs": {
+      "wind_speed_m_s": 4.17,
+      "wind_direction_deg": 1.32,
+      "external_temperature_c": 27.1,
+      "internal_temperature_c": 35.99,
+      "nacelle_direction_deg": 55.73,
+      "blade_pitch_1_deg": 0.99,
+      "blade_pitch_2_deg": 0.99,
+      "blade_pitch_3_deg": 0.99,
+      "reactive_power_kvar": -0.25,
+      "Hour": 17,
+      "Minute": 0,
+      "Month": 10
+    },
+    "inputs_provenance": "Solar historical row in October 2014; Wind relative-calendar row with no verified matching calendar date. Matching clock features does NOT prove simultaneous observations; model outputs are hypothetically combined."
+  },
+  "baseline": {
+    "voltage_v": 1.972,
+    "temperature_c": 50.25,
+    "current_density_a_cm2": 1.464,
+    "electrolyte_concentration_wt_pct": 24.18,
+    "water_flow_l_min": 2.158,
+    "pressure_bar": 18.08
+  },
+  "baseline_provenance": "Original sample_id=1511, observed renewable_power_kw=199.910; fixed scenario power is 200 kW and six controls are copied from this observed record.",
+  "bounds": {
+    "voltage_v": [
+      1.583,
+      2.217
+    ],
+    "temperature_c": [
+      47.0395,
+      83.05149999999999
+    ],
+    "current_density_a_cm2": [
+      0.314,
+      2.3901499999999993
+    ],
+    "electrolyte_concentration_wt_pct": [
+      20.729,
+      34.31
+    ],
+    "water_flow_l_min": [
+      0.75495,
+      4.7520999999999995
+    ],
+    "pressure_bar": [
+      2.497000000000001,
+      28.260999999999996
+    ]
+  },
+  "bounds_basis": "Empirical 5th\u201395th percentile per feature; not safety limits; does not establish joint-distribution support.",
+  "optimization": {
+    "candidate_count": 650,
+    "seed": 42
+  },
+  "energy_benchmark": {
+    "kwh_per_kg": 55.0,
+    "use_as": "RESEARCH_COMPARISON_ONLY",
+    "source": "U.S. DOE 2022 alkaline electrolyzer reference system energy benchmark; illustrative assumption, not measured system SEC"
+  },
+  "fuel_cell": {
+    "bridge_mode": "ASSUMED_REGULATED_DRAW",
+    "acknowledge_unverified_device_chain": true,
+    "flow_demand_l_min": 14.998525520000001,
+    "gas_reference_temperature_k": 273.15,
+    "gas_reference_pressure_pa": 101325.0,
+    "operating_point": {
+      "voltage_v": 47.240817035,
+      "temperature_c": 71.20329585,
+      "pressure_bar": 3.0002024924999997
+    },
+    "operating_point_provenance": "Numeric medians of historically labelled Pass rows; hypothetical setpoint, NOT verified connected hydrogen-fuel-cell device configuration.",
+    "flow_demand_provenance": "Median observed historical Fuel Cell Pass flow, not a measured demand from the candidate electrolyzer."
+  }
+}

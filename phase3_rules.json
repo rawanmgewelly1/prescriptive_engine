@@ -1,0 +1,4 @@
+{
+  "research_constraints": [],
+  "instructions": "Enter only sourced limits after confirming process type, units, and applicability. Ranges observed in CSV are NOT safe bounds."
+}

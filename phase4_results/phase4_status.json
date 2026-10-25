@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "run_id": "040e03124db54c59bf682099097bf5b7",
+  "created_utc": "2026-10-23T22:26:28.352382+00:00",
+  "phase": "4",
+  "components": {
+    "solar": {
+      "status": "SOURCE_SCHEMA_READABLE_NOT_INTEGRATION_APPROVED",
+      "detail": "Source schema inspected; training validity and cross-model coupling are separate questions",
+      "rows": null,
+      "path": "D:\\prescriptive_engine\\data\\solar_standardized.csv",
+      "sample_rows_checked": 32
+    },
+    "wind": {
+      "status": "SOURCE_SCHEMA_READABLE_NOT_INTEGRATION_APPROVED",
+      "detail": "Wind time_of_day has clock-only or relative rows; cannot align with dated Solar by assumption",
+      "rows": null,
+      "path": "D:\\prescriptive_engine\\data\\wind_standardized.csv",
+      "sample_rows_checked": 32,
+      "clock_status": "RELATIVE_TIME_NO_DOCUMENTED_CALENDAR_ORIGIN"
+    },
+    "hydrogen": {
+      "status": "SOURCE_SCHEMA_READABLE_NOT_INTEGRATION_APPROVED",
+      "detail": "Source schema inspected; training validity and cross-model coupling are separate questions",
+      "rows": null,
+      "path": "D:\\prescriptive_engine\\data\\green_hydrogen_standardized.csv",
+      "sample_rows_checked": 32
+    },
+    "fuel_cell": {
+      "status": "SOURCE_SCHEMA_READABLE_NOT_INTEGRATION_APPROVED",
+      "detail": "Source schema inspected; training validity and cross-model coupling are separate questions",
+      "rows": null,
+      "path": "D:\\prescriptive_engine\\data\\fuel_cell_standardized.csv",
+      "sample_rows_checked": 32
+    },
+    "solar_predictions": {
+      "status": "PREDICTIONS_AVAILABLE_NOT_CROSS_VALIDATED",
+      "detail": "Solar predictions readable",
+      "rows": 1745,
+      "path": "D:\\prescriptive_engine\\outputs\\solar_predictions.csv"
+    },
+    "wind_predictions": {
+      "status": "BLOCKED_MISSING_PREDICTIONS",
+      "detail": "Wind prediction output not found; run the existing model engine first",
+      "rows": null,
+      "path": "D:\\prescriptive_engine\\outputs\\wind_predictions.csv"
+    },
+    "phase3_candidates": {
+      "status": "PREDICTIONS_AVAILABLE_NOT_CROSS_VALIDATED",
+      "detail": "Hydrogen Phase3 predictions readable",
+      "rows": 1622,
+      "path": "D:\\prescriptive_engine\\phase3_results\\phase3_research_passed.csv"
+    },
+    "fuel_cell_history_predictions": {
+      "status": "PREDICTIONS_AVAILABLE_NOT_CROSS_VALIDATED",
+      "detail": "Historical dataset predictions ONLY, not predictions for Hydrogen candidate flows",
+      "rows": 26930,
+      "path": "D:\\prescriptive_engine\\outputs\\fuel_cell_diagnostics.csv"
+    },
+    "hydrogen_candidate_provenance": {
+      "status": "EXACT_UNIQUE_FEATURE_MATCH_VERIFIED_LEGACY_ROW_ID_AUDITED",
+      "detail": "Seven original features matched exactly and uniquely; 1622 legacy source_row_number values differ from actual sample_id",
+      "rows": 1622,
+      "mismatched_legacy_row_ids": 1622,
+      "matching_method": "exact_unique_seven_source_features"
+    }
+  },
+  "links": {
+    "solar_to_wind": {
+      "status": "BLOCKED_MISSING_SOLAR_OR_WIND_OUTPUT",
+      "detail": "Solar/Wind both require existing model predictions",
+      "rows": null
+    },
+    "renewable_to_hydrogen": {
+      "status": "BLOCKED_NO_VERIFIED_RENEWABLE_ALIGNMENT",
+      "detail": "Renewable timeseries unavailable",
+      "rows": null
+    },
+    "hydrogen_to_fuel_cell": {
+      "status": "BLOCKED_NO_VERIFIED_HYDROGEN_TO_FC_MAPPING",
+      "detail": "Requires device-chain, observed hydrogen flow, FC operating point and time evidence",
+      "rows": null
+    }
+  },
+  "physical_safety_approved": false,
+  "solar_wind_hydrogen_fuel_cell_physical_integration_validated": false,
+  "meaning": "Research provenance, data compatibility and conditional model links only; NOT a validated physical dispatch or safe operating system",
+  "shared_four_component_candidate_count": 0,
+  "overall_status": "BLOCKED_INCOMPLETE_CROSS_MODEL_EVIDENCE",
+  "unresolved_links": [
+    "solar_to_wind",
+    "renewable_to_hydrogen",
+    "hydrogen_to_fuel_cell"
+  ],
+  "outputs_created": [
+    "phase4_candidate_provenance.csv",
+    "phase4_component_diagnostics.csv",
+    "phase4_status.json"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "mode": "research_scenario",
+  "source": "user_entered_available_power",
+  "available_power_kw": 200
+}
